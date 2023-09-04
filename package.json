@@ -1,0 +1,20 @@
+{
+  "name": "g10-mgpt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sofi-camino/G10-MGPT.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sofi-camino/G10-MGPT/issues"
+  },
+  "homepage": "https://github.com/sofi-camino/G10-MGPT#readme"
+}
