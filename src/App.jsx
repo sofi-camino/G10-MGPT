@@ -1,23 +1,34 @@
 import { useState } from "react";
-import { getChatGPTResponse } from "./lib/utils";
+import { ChatGPT, ChatGPTAzure } from "./lib/utils";
 import openai_image from "./assets/openai.png";
 
 const EXAMPLE_PROMPT = `Hola,
 La verdad es que no le entendí nada a tu última clase. ¿Podrías explicar eso otra vez? Si no, me rindo.
-Saludos, Mario Droguett
-`
+Saludos, Juan Pablo
+`;
 
 function App() {
+  // const { getOpenAIResponse, loading } = ChatGPT();
+  const { getOpenAIResponse, loading } = ChatGPTAzure(); // for azure api
   const [text, setText] = useState(EXAMPLE_PROMPT);
+  const [error, setError] = useState("");
   const [response, setResponse] = useState("");
   const handleClick = () => {
-    getChatGPTResponse(text).then((res) => {
-      setResponse(res);
-    });
+    getOpenAIResponse(text)
+      .then((res) => {
+        // console.log(res)
+        setError("");
+        setResponse(res);
+      })
+      .catch(() => {
+        setError(
+          "Ha ocurrido un error con la API de ChatGPT. Revisa la consola para más información."
+        );
+      });
   };
 
   return (
-    <div className="flex flex-col items-center justify-center text-center space-y-12 py-12 bg-neutral-600 text-white h-screen">
+    <div className="flex flex-col items-center justify-center text-center space-y-12 py-12 bg-neutral-600 text-white min-h-screen">
       <h2 className="text-2xl font-bold">Montoya GPT - G10</h2>
 
       <div className="flex flex-row">
@@ -38,9 +49,15 @@ function App() {
           <img src={openai_image} alt="robot" className="h-10 w-10" />
           <h2 className="text-lg font-semibold">ChatGPT</h2>
         </div>
-        <div className="p-2 border-2 h-64 w-96 rounded-md text-left font-mono bg-neutral-500 border-neutral-400 overflow-y-scroll">
-          {response}
+        <div className="p-2 border-2 h-64 w-96 rounded-md text-left bg-neutral-500 border-neutral-400 overflow-y-scroll">
+          {loading && "Cargando..."}
+          {!loading && response}
         </div>
+      </div>
+      <div>
+        {error !== "" && (
+          <span className="bg-red-400 p-4 rounded-xl">{error}</span>
+        )}
       </div>
     </div>
   );
