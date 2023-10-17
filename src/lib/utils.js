@@ -5,7 +5,8 @@ import { OpenAIClient, AzureKeyCredential } from "@azure/openai";
 const INITIAL_PROMPT = `Soy un ia que ayuda a estudiantes y profesores reescribir
 sus correos siguiendo la siguiente estructura:
 Saludo, Presentación, Exposición del caso y Requerimiento, Despedida.
-Envía un mensaje para comenzar y yo lo redactaré por ti. Sin agregar líneas de más.
+Envía un mensaje para comenzar y yo lo redactaré por ti.
+Ten en cuenta que tienes 100 tokens de escritura como máximo.
 `;
 
 export const ChatGPT = () => {

@@ -28,12 +28,12 @@ function App() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center text-center space-y-12 py-12 bg-neutral-600 text-white min-h-screen">
+    <div className="flex flex-col items-center justify-center text-center space-y-12 py-12 bg-neutral-700 text-white min-h-screen">
       <h2 className="text-2xl font-bold">Montoya GPT - G10</h2>
 
       <div className="flex flex-row">
         <textarea
-          className="p-2 border-2 h-64 w-96 rounded-md bg-neutral-500 border-neutral-400 resize-none rounded-r-none"
+          className="p-3 border-2 h-64 w-[600px] rounded-md bg-neutral-600 border-neutral-500 resize-none rounded-r-none"
           value={text}
           onChange={(e) => setText(e.target.value)}
         ></textarea>
@@ -49,7 +49,7 @@ function App() {
           <img src={openai_image} alt="robot" className="h-10 w-10" />
           <h2 className="text-lg font-semibold">ChatGPT</h2>
         </div>
-        <div className="p-2 border-2 h-64 w-96 rounded-md text-left bg-neutral-500 border-neutral-400 overflow-y-scroll">
+        <div className="p-3 border-2 min-h-64 w-[600px] rounded-md text-justify bg-neutral-600 border-neutral-500">
           {loading && "Cargando..."}
           {!loading && response}
         </div>
