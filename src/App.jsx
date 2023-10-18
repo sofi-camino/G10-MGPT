@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ChatGPT, ChatGPTAzure } from "./lib/utils";
 import openai_image from "./assets/openai.png";
+import { SlowText } from "./components/SlowText";
 
 const EXAMPLE_PROMPT = `Hola,
 La verdad es que no le entendí nada a tu última clase. ¿Podrías explicar eso otra vez? Si no, me rindo.
@@ -20,7 +21,8 @@ function App() {
         setError("");
         setResponse(res);
       })
-      .catch(() => {
+      .catch((error) => {
+        console.log(error);
         setError(
           "Ha ocurrido un error con la API de ChatGPT. Revisa la consola para más información."
         );
@@ -39,7 +41,7 @@ function App() {
         ></textarea>
         <button
           onClick={handleClick}
-          className="bg-emerald-500 hover:bg-emerald-700 text-white font-bold py-2 px-4 rounded-md rounded-l-none"
+          className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2 px-4 rounded-md rounded-l-none"
         >
           Enviar
         </button>
@@ -49,9 +51,9 @@ function App() {
           <img src={openai_image} alt="robot" className="h-10 w-10" />
           <h2 className="text-lg font-semibold">ChatGPT</h2>
         </div>
-        <div className="p-3 border-2 min-h-64 w-[600px] rounded-md text-justify bg-neutral-600 border-neutral-500">
+        <div className="p-3 border-2 min-h-64 w-[600px] rounded-md text-justify bg-neutral-600 border-neutral-500 transition-all">
           {loading && "Cargando..."}
-          {!loading && response}
+          {!loading && <SlowText speed={20} text={response} />}
         </div>
       </div>
       <div>
