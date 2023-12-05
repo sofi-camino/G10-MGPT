@@ -12,7 +12,7 @@ their emails following the following structure:
 Greeting, Presentation, Case Exposure and Requirement, Farewell.
 Send a message to start and I will write / rewrite it for you.
 The rewriting I do will be of type ${formalityType} and
-I will rewrite it in the same language that you write to me.
+I will rewrite it in Spanish.
 I will not respond to your messages, I will only rewrite them or change the wording.
 `;
 

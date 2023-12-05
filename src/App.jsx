@@ -3,25 +3,20 @@ import { ChatGPT, ChatGPTAzure } from "./lib/utils";
 import openai_image from "./assets/openai.png";
 import { SlowText } from "./components/SlowText";
 
-const EXAMPLE_PROMPT = `Hola profe,
-La verdad es que no le entendí nada a tu última clase.
-¿Podrías hacer ejemplos de como se aplica eso de la integral de la vaca otra vez en la prox clase?
-Si no, me rindo.
-Saludos, Juan Pablo
+const EXAMPLE_PROMPT = `Hola profe, le pregunto al tiro, para mañana martes, la asistencia para las demás presentaciones es obligatoria o solo es necesario que asistamos a la nuestra?
+Saludos
+Juan carlos.
 `;
 
 // const EXAMPLE_PROMPT = `Hey teacher,
-// I didn't understand anything in your last class. Could you give examples of how to apply that cow integral again in the next class?
-// If not, I give up.
-// Greetings, Juan Pablo
+// I'm asking you right away, for tomorrow Tuesday, is attendance for the other presentations mandatory or is it only necessary for us to attend ours?
 // `;
 
 const SELECT_OPTIONS = [
   { value: "very formal", label: "Formal" },
   { value: "colloquial", label: "Casual" },
   {
-    value:
-      "very colloquial like gangstar in english or 'cuico zorron de chile' if it is spanish",
+    value: "very colloquial like 'cuico zorron de chile'",
     label: "Coloquial",
   },
 ];
